@@ -18,6 +18,11 @@ namespace CupidLogic
             Key = s;
             Value = d;
         }
+
+        public override string ToString()
+        {
+            return Key + " , " + Value.ToString();
+        }
     }
 
     [Serializable]

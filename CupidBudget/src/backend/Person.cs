@@ -12,6 +12,9 @@ namespace CupidLogic
         public decimal Salary { get; set; }
         public string Name { get; set; }
 
+        public decimal Contribution { get; set; }
+
+        public decimal ContributionWeight { get; set; }
         public override string ToString()
         {
             string str = "";

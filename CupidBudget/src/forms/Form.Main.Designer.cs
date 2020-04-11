@@ -30,9 +30,9 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rb_equal_contribution = new System.Windows.Forms.RadioButton();
+            this.rb_equal_leftover = new System.Windows.Forms.RadioButton();
+            this.rb_weighted = new System.Windows.Forms.RadioButton();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -116,9 +116,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioButton3);
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Controls.Add(this.rb_equal_contribution);
+            this.groupBox2.Controls.Add(this.rb_equal_leftover);
+            this.groupBox2.Controls.Add(this.rb_weighted);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Location = new System.Drawing.Point(12, 308);
             this.groupBox2.Name = "groupBox2";
@@ -126,41 +126,44 @@
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             // 
-            // radioButton3
+            // rb_equal_contribution
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(142, 97);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(158, 24);
-            this.radioButton3.TabIndex = 3;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Equal Contribution";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rb_equal_contribution.AutoSize = true;
+            this.rb_equal_contribution.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_equal_contribution.Location = new System.Drawing.Point(142, 97);
+            this.rb_equal_contribution.Name = "rb_equal_contribution";
+            this.rb_equal_contribution.Size = new System.Drawing.Size(158, 24);
+            this.rb_equal_contribution.TabIndex = 3;
+            this.rb_equal_contribution.TabStop = true;
+            this.rb_equal_contribution.Text = "Equal Contribution";
+            this.rb_equal_contribution.UseVisualStyleBackColor = true;
+            this.rb_equal_contribution.CheckedChanged += new System.EventHandler(this.rb_equal_contribution_CheckedChanged);
             // 
-            // radioButton2
+            // rb_equal_leftover
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(142, 58);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(130, 24);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Equal Leftover";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rb_equal_leftover.AutoSize = true;
+            this.rb_equal_leftover.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_equal_leftover.Location = new System.Drawing.Point(142, 58);
+            this.rb_equal_leftover.Name = "rb_equal_leftover";
+            this.rb_equal_leftover.Size = new System.Drawing.Size(130, 24);
+            this.rb_equal_leftover.TabIndex = 2;
+            this.rb_equal_leftover.TabStop = true;
+            this.rb_equal_leftover.Text = "Equal Leftover";
+            this.rb_equal_leftover.UseVisualStyleBackColor = true;
+            this.rb_equal_leftover.CheckedChanged += new System.EventHandler(this.rb_equal_leftover_CheckedChanged);
             // 
-            // radioButton1
+            // rb_weighted
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(142, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(185, 24);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Weighted Contribution";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rb_weighted.AutoSize = true;
+            this.rb_weighted.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_weighted.Location = new System.Drawing.Point(142, 19);
+            this.rb_weighted.Name = "rb_weighted";
+            this.rb_weighted.Size = new System.Drawing.Size(185, 24);
+            this.rb_weighted.TabIndex = 1;
+            this.rb_weighted.TabStop = true;
+            this.rb_weighted.Text = "Weighted Contribution";
+            this.rb_weighted.UseVisualStyleBackColor = true;
+            this.rb_weighted.CheckedChanged += new System.EventHandler(this.rb_weighted_CheckedChanged);
             // 
             // label15
             // 
@@ -276,7 +279,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "Edit";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.btn_housing_expenses_Click);
             // 
             // lbl_misc_total
             // 
@@ -566,9 +569,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rb_equal_contribution;
+        private System.Windows.Forms.RadioButton rb_equal_leftover;
+        private System.Windows.Forms.RadioButton rb_weighted;
         private System.Windows.Forms.Label label15;
     }
 }
