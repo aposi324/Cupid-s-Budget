@@ -2,14 +2,14 @@
 
 Cupid's budget is created to track couples' expenses and form a budget. It is planned for three different budgetting styles to be included, as listed below.
 
-## Weighted Contribution
-Both individuals will contibute to monthly expenses in proportion to their income, up to 100% of their income.
+* Weighted Contribution
+  * Both individuals will contibute to monthly expenses in proportion to their income, up to 100% of their income.
 
-## Equal Leftover
-Both individuals will contribute to monthly expenses such that they will have equal money leftover after planned expenses.
+* Equal Leftover
+  * Both individuals will contribute to monthly expenses such that they will have equal money leftover after planned expenses.
 
-## Equal Contribution
-Both individuals will contibute the same amount to monthly expenses, up to 100% of their income.
+* Equal Contribution
+  * Both individuals will contibute the same amount to monthly expenses, up to 100% of their income.
 
 # Current Status
 Not all core features are implemented currently. It is still being worked on!
