@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Collections;
 
 namespace CupidLogic
 {
+    /// <summary>
+    /// This struct contains key value pairs for a single expense in a list.
+    /// </summary>
     [Serializable]
     public struct Expense
     {
@@ -25,6 +25,9 @@ namespace CupidLogic
         }
     }
 
+    /// <summary>
+    /// Enumerable list of expenses with operations to interface with that data.
+    /// </summary>
     [Serializable]
     public class ExpenseList : IEnumerable<Expense>
     {
@@ -46,13 +49,20 @@ namespace CupidLogic
             return total;
         }
 
-        //Add and expense to the list
+        /// <summary>
+        /// Add an expense to the end of the list
+        /// </summary>
+        /// <param name="e"> The expense to be added to the list.</param>
         public void Add(Expense e)
         {
             l.Add(e);
         }
 
-        //Access expense with [] operator
+        /// <summary>
+        /// Access expense with [] operator
+        /// </summary>
+        /// <param name="i">The index to be accessed.</param>
+        // TODO: Exception handling
         public Expense this[int i]
         {
             get { return l[i]; }

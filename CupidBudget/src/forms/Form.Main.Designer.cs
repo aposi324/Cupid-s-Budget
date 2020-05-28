@@ -1,4 +1,5 @@
-﻿namespace CupidBudget
+﻿
+namespace CupidBudget
 {
     partial class FormMain
     {
@@ -28,6 +29,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rb_equal_contribution = new System.Windows.Forms.RadioButton();
@@ -67,6 +71,15 @@
             this.btn_person2 = new System.Windows.Forms.Button();
             this.gb_person2_stats = new System.Windows.Forms.GroupBox();
             this.gb_person1_stats = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.lbl_person1_salary = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.ch_person1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -77,6 +90,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.num_person1_tax_rate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_person2_salary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_person1_salary)).BeginInit();
+            this.gb_person1_stats.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ch_person1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -500,12 +515,114 @@
             // 
             // gb_person1_stats
             // 
+            this.gb_person1_stats.Controls.Add(this.label19);
+            this.gb_person1_stats.Controls.Add(this.label18);
+            this.gb_person1_stats.Controls.Add(this.label17);
+            this.gb_person1_stats.Controls.Add(this.lbl_person1_salary);
+            this.gb_person1_stats.Controls.Add(this.label14);
+            this.gb_person1_stats.Controls.Add(this.label13);
+            this.gb_person1_stats.Controls.Add(this.label12);
+            this.gb_person1_stats.Controls.Add(this.label11);
+            this.gb_person1_stats.Controls.Add(this.ch_person1);
             this.gb_person1_stats.Location = new System.Drawing.Point(4, 4);
             this.gb_person1_stats.Name = "gb_person1_stats";
             this.gb_person1_stats.Size = new System.Drawing.Size(490, 211);
             this.gb_person1_stats.TabIndex = 0;
             this.gb_person1_stats.TabStop = false;
             this.gb_person1_stats.Text = "person1";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(121, 150);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(34, 13);
+            this.label19.TabIndex = 8;
+            this.label19.Text = "$0.00";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(121, 110);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(21, 13);
+            this.label18.TabIndex = 7;
+            this.label18.Text = "0%";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(121, 69);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(34, 13);
+            this.label17.TabIndex = 6;
+            this.label17.Text = "$0.00";
+            // 
+            // lbl_person1_salary
+            // 
+            this.lbl_person1_salary.AutoSize = true;
+            this.lbl_person1_salary.Location = new System.Drawing.Point(121, 30);
+            this.lbl_person1_salary.Name = "lbl_person1_salary";
+            this.lbl_person1_salary.Size = new System.Drawing.Size(34, 13);
+            this.lbl_person1_salary.TabIndex = 5;
+            this.lbl_person1_salary.Text = "$0.00";
+            this.lbl_person1_salary.Click += new System.EventHandler(this.label16_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(7, 150);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(94, 13);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "After Contribution: ";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 110);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(106, 13);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Contribution Weight: ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 69);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(69, 13);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Contribution: ";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(7, 29);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(36, 13);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Salary";
+            // 
+            // ch_person1
+            // 
+            this.ch_person1.BackColor = System.Drawing.Color.Transparent;
+            this.ch_person1.BorderlineColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            this.ch_person1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.ch_person1.Legends.Add(legend1);
+            this.ch_person1.Location = new System.Drawing.Point(252, 23);
+            this.ch_person1.Name = "ch_person1";
+            this.ch_person1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.ch_person1.Series.Add(series1);
+            this.ch_person1.Size = new System.Drawing.Size(232, 152);
+            this.ch_person1.TabIndex = 0;
+            this.ch_person1.Text = "chart1";
             // 
             // FormMain
             // 
@@ -528,6 +645,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.num_person1_tax_rate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_person2_salary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_person1_salary)).EndInit();
+            this.gb_person1_stats.ResumeLayout(false);
+            this.gb_person1_stats.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ch_person1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -573,6 +693,15 @@
         private System.Windows.Forms.RadioButton rb_equal_leftover;
         private System.Windows.Forms.RadioButton rb_weighted;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ch_person1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lbl_person1_salary;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
     }
 }
 

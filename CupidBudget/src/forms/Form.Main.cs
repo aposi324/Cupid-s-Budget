@@ -87,6 +87,10 @@ namespace CupidBudget
             this.state.Person1.Tax = 1-(num_person1_tax_rate.Value * (decimal)0.01);
             Console.WriteLine(this.state.Person1);
             gb_person1_stats.Text = this.state.Person1.Name;
+            this.lbl_person1_salary.Text = this.state.Person1.Salary.ToString();
+           
+            //this.ch_person1.Series["asdf"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            //this.ch_person1.Series["asdf"].Points.DataBind()
         }
 
         private void tb_person1_name_TextChanged(object sender, EventArgs e)
@@ -152,6 +156,11 @@ namespace CupidBudget
         private void rb_equal_contribution_CheckedChanged(object sender, EventArgs e)
         {
             updateResults();
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

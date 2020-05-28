@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +10,14 @@ using System.Threading.Tasks;
 
 namespace CupidLogic
 {
+    /// <summary>
+    /// This class stores the overall state of the budget. It contains the data and operates on it.
+    /// </summary>
 
-    // Keeps the overall state of a budget
     [Serializable]
     public class State
     {
         public enum BudgetStyle { Weighted, EqualSpend, EqualContribution }
-        //public ExpenseList MonthlyExpenses;
         public ExpenseList housingExpenses;
         public ExpenseList utilityExpenses;
         public ExpenseList foodExpenses;
