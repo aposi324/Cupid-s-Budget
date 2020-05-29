@@ -34,13 +34,14 @@ namespace CupidLogic
             set
             {
                 _currentBudgetStyle = value;
-                UpdateBudget();
+                UpdateBudget(_currentBudgetStyle);
            
             }
         }
 
-        public void UpdateBudget()
+        public void UpdateBudget(BudgetStyle style)
         {
+       
             switch (CurrentBudgetStyle)
             {
                 //TODO: Budget goes over

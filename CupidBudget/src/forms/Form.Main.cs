@@ -110,37 +110,47 @@ namespace CupidBudget
             if (rb_weighted.Checked)
             {
                 Console.WriteLine("Weighted Contribution");
-                state.UpdateBudget();
+                state.CurrentBudgetStyle = State.BudgetStyle.Weighted;
             } else if (rb_equal_leftover.Checked)
             {
                 Console.WriteLine("Equal Leftover");
-                state.UpdateBudget();
-
+                state.CurrentBudgetStyle = State.BudgetStyle.EqualSpend;
             }
             else if (rb_equal_contribution.Checked)
             {
                 Console.WriteLine("Equal Contribution");
-                state.UpdateBudget();
-
+                state.CurrentBudgetStyle = State.BudgetStyle.EqualContribution;
             }
             return;
         }
 
 
-        // Make these only happen once
+
         private void rb_weighted_CheckedChanged(object sender, EventArgs e)
         {
-            updateResults();
+            RadioButton check = (RadioButton)sender;
+            if (check.Checked) {
+                updateResults();
+            }
+
         }
 
         private void rb_equal_leftover_CheckedChanged(object sender, EventArgs e)
         {
-            updateResults();
+            RadioButton check = (RadioButton)sender;
+            if (check.Checked)
+            {
+                updateResults();
+            }
         }
 
         private void rb_equal_contribution_CheckedChanged(object sender, EventArgs e)
         {
-            updateResults();
+            RadioButton check = (RadioButton)sender;
+            if (check.Checked)
+            {
+                updateResults();
+            }
         }
     }
 }

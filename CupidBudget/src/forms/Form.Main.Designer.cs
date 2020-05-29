@@ -113,7 +113,7 @@ namespace CupidBudget
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.btn_person2);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
+      
             // 
             // splitContainer1.Panel2
             // 
@@ -487,7 +487,7 @@ namespace CupidBudget
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Name";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+
             // 
             // btn_person2
             // 
@@ -560,7 +560,7 @@ namespace CupidBudget
             this.lbl_person1_salary.Size = new System.Drawing.Size(34, 13);
             this.lbl_person1_salary.TabIndex = 5;
             this.lbl_person1_salary.Text = "$0.00";
-            this.lbl_person1_salary.Click += new System.EventHandler(this.label16_Click);
+
             // 
             // label14
             // 
