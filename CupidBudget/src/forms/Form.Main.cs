@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,8 +19,8 @@ namespace CupidBudget
 
         private void OnStateUpdate(object sender, EventArgs e)
         {
-            this.lbl_person1_salary.Text = this.state.Person1.Salary.ToString();
-            this.lbl_person1_contribution.Text = this.state.Person1.Contribution.ToString();
+            this.lbl_person1_salary.Text = this.state.Person1.Salary.ToString("C", CultureInfo.CurrentCulture);
+            this.lbl_person1_contribution.Text = this.state.Person1.Contribution.ToString("C", CultureInfo.CurrentCulture);
             this.lbl_person1_contribution_weight.Text = this.state.Person1.ContributionWeight.ToString();
         }
         public FormMain()
@@ -28,19 +29,12 @@ namespace CupidBudget
             state = new State(); //Initialize the state
             state.OnStateUpdate += this.OnStateUpdate;
             UpdateHousingCostLabel();
-            lbl_utilities_total.Text = "$" + state.utilityExpenses.Total().ToString();
-            lbl_food_total.Text = "$" + state.foodExpenses.Total().ToString();
-            lbl_misc_total.Text = "$" + state.otherExpenses.Total().ToString();
-
-
-
+            lbl_utilities_total.Text = state.utilityExpenses.Total().ToString("C", CultureInfo.CurrentCulture);
+            lbl_food_total.Text = state.foodExpenses.Total().ToString("C", CultureInfo.CurrentCulture);
+            lbl_misc_total.Text = state.otherExpenses.Total().ToString("C", CultureInfo.CurrentCulture);
         }
 
-        private void btn_person1_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("hello");
-            btn_person1.Text = "Alex";
-        }
+
 
         private void btn_person2_Click(object sender, EventArgs e)
         {
@@ -49,11 +43,6 @@ namespace CupidBudget
             this.state.Person2.Tax = 1-(num_person2_tax_rate.Value * (decimal)0.01);
             Console.WriteLine(this.state.Person2);
             gb_person2_stats.Text = this.state.Person2.Name;
-
-        }
-
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
 
         }
 
@@ -75,13 +64,9 @@ namespace CupidBudget
             this.state.Person1.Tax = 1-(num_person1_tax_rate.Value * (decimal)0.01);
             Console.WriteLine(this.state.Person1);
             gb_person1_stats.Text = this.state.Person1.Name;
-            this.lbl_person1_salary.Text = this.state.Person1.Salary.ToString();
+            this.lbl_person1_salary.Text = this.state.Person1.Salary.ToString("C", CultureInfo.CurrentCulture);
         }
 
-        private void tb_person1_name_TextChanged(object sender, EventArgs e)
-        {
-          
-        }
 
         //Housing expense Edit button click event handler
         private void btn_housing_expenses_Click(object sender, EventArgs e)
