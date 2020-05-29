@@ -35,7 +35,6 @@ namespace CupidLogic
             {
                 _currentBudgetStyle = value;
                 UpdateBudget(_currentBudgetStyle);
-           
             }
         }
 

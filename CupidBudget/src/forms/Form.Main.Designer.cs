@@ -119,7 +119,6 @@ namespace CupidBudget
             // 
             this.splitContainer1.Panel2.Controls.Add(this.gb_person2_stats);
             this.splitContainer1.Panel2.Controls.Add(this.gb_person1_stats);
-            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(726, 459);
             this.splitContainer1.SplitterDistance = 505;
             this.splitContainer1.TabIndex = 0;
@@ -468,7 +467,6 @@ namespace CupidBudget
             this.tb_person1_name.Name = "tb_person1_name";
             this.tb_person1_name.Size = new System.Drawing.Size(100, 20);
             this.tb_person1_name.TabIndex = 4;
-            this.tb_person1_name.TextChanged += new System.EventHandler(this.tb_person1_name_TextChanged);
             // 
             // label2
             // 
