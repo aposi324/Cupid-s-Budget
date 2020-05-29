@@ -68,9 +68,9 @@ namespace CupidBudget
             this.btn_person2 = new System.Windows.Forms.Button();
             this.gb_person2_stats = new System.Windows.Forms.GroupBox();
             this.gb_person1_stats = new System.Windows.Forms.GroupBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.lbl_person1_contribution_weight = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.lbl_person1_contribution = new System.Windows.Forms.Label();
             this.lbl_person1_salary = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -510,9 +510,9 @@ namespace CupidBudget
             // 
             // gb_person1_stats
             // 
-            this.gb_person1_stats.Controls.Add(this.label19);
+            this.gb_person1_stats.Controls.Add(this.lbl_person1_contribution_weight);
             this.gb_person1_stats.Controls.Add(this.label18);
-            this.gb_person1_stats.Controls.Add(this.label17);
+            this.gb_person1_stats.Controls.Add(this.lbl_person1_contribution);
             this.gb_person1_stats.Controls.Add(this.lbl_person1_salary);
             this.gb_person1_stats.Controls.Add(this.label14);
             this.gb_person1_stats.Controls.Add(this.label13);
@@ -525,14 +525,14 @@ namespace CupidBudget
             this.gb_person1_stats.TabStop = false;
             this.gb_person1_stats.Text = "person1";
             // 
-            // label19
+            // lbl_person1_contribution_weight
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(121, 150);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(34, 13);
-            this.label19.TabIndex = 8;
-            this.label19.Text = "$0.00";
+            this.lbl_person1_contribution_weight.AutoSize = true;
+            this.lbl_person1_contribution_weight.Location = new System.Drawing.Point(121, 150);
+            this.lbl_person1_contribution_weight.Name = "lbl_person1_contribution_weight";
+            this.lbl_person1_contribution_weight.Size = new System.Drawing.Size(34, 13);
+            this.lbl_person1_contribution_weight.TabIndex = 8;
+            this.lbl_person1_contribution_weight.Text = "$0.00";
             // 
             // label18
             // 
@@ -543,14 +543,14 @@ namespace CupidBudget
             this.label18.TabIndex = 7;
             this.label18.Text = "0%";
             // 
-            // label17
+            // lbl_person1_contribution
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(121, 69);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(34, 13);
-            this.label17.TabIndex = 6;
-            this.label17.Text = "$0.00";
+            this.lbl_person1_contribution.AutoSize = true;
+            this.lbl_person1_contribution.Location = new System.Drawing.Point(121, 69);
+            this.lbl_person1_contribution.Name = "lbl_person1_contribution";
+            this.lbl_person1_contribution.Size = new System.Drawing.Size(34, 13);
+            this.lbl_person1_contribution.TabIndex = 6;
+            this.lbl_person1_contribution.Text = "$0.00";
             // 
             // lbl_person1_salary
             // 
@@ -666,9 +666,9 @@ namespace CupidBudget
         private System.Windows.Forms.RadioButton rb_equal_leftover;
         private System.Windows.Forms.RadioButton rb_weighted;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lbl_person1_contribution_weight;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lbl_person1_contribution;
         private System.Windows.Forms.Label lbl_person1_salary;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;

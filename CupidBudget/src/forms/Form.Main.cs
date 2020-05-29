@@ -18,7 +18,9 @@ namespace CupidBudget
 
         private void OnStateUpdate(object sender, EventArgs e)
         {
-            Console.WriteLine("Event Fired!");
+            this.lbl_person1_salary.Text = this.state.Person1.Salary.ToString();
+            this.lbl_person1_contribution.Text = this.state.Person1.Contribution.ToString();
+            this.lbl_person1_contribution_weight.Text = this.state.Person1.ContributionWeight.ToString();
         }
         public FormMain()
         {
@@ -66,16 +68,6 @@ namespace CupidBudget
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btn_person1_Click_1(object sender, EventArgs e)
         {
             this.state.Person1.Name = tb_person1_name.Text;
@@ -84,9 +76,6 @@ namespace CupidBudget
             Console.WriteLine(this.state.Person1);
             gb_person1_stats.Text = this.state.Person1.Name;
             this.lbl_person1_salary.Text = this.state.Person1.Salary.ToString();
-           
-            //this.ch_person1.Series["asdf"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            //this.ch_person1.Series["asdf"].Points.DataBind()
         }
 
         private void tb_person1_name_TextChanged(object sender, EventArgs e)
@@ -152,11 +141,6 @@ namespace CupidBudget
         private void rb_equal_contribution_CheckedChanged(object sender, EventArgs e)
         {
             updateResults();
-        }
-
-        private void label16_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

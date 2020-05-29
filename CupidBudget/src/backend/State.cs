@@ -67,14 +67,12 @@ namespace CupidLogic
                     Person1.Contribution = GetTotalExpenses() * (decimal)0.5;
                     Person2.Contribution = GetTotalExpenses() * (decimal)0.5;
 
-                    // Update cotibution weight to keep state valid
+                    // Update contribution weight to keep state valid
                     Person1.ContributionWeight = Person1.Contribution / GetTotalExpenses();
                     Person2.ContributionWeight = Person2.Contribution / GetTotalExpenses();
                     break;
             }
            
-            Console.WriteLine(Person1.ContributionWeight);
-            Console.WriteLine(Person2.ContributionWeight);
             OnStateUpdate?.Invoke(this,EventArgs.Empty);
         }
 
