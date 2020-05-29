@@ -27,6 +27,7 @@ namespace CupidLogic
         public Person Person2 { get; set; }
         private BudgetStyle _currentBudgetStyle;
 
+        public event EventHandler OnStateUpdate;
         public BudgetStyle CurrentBudgetStyle
         {
             get => _currentBudgetStyle;
@@ -42,29 +43,42 @@ namespace CupidLogic
         {
             switch (CurrentBudgetStyle)
             {
+                //TODO: Budget goes over
                 case BudgetStyle.Weighted:  // Each person contributes to the monthly bills proportionally to their post-tax salary
-                    var combinedSalary = (Person1.Salary * (Person1.Tax)) + (Person2.Salary * (Person2.Tax));
-                    Console.WriteLine("Combined Salary: " + combinedSalary);
+                   // var combinedSalary = (Person1.Salary * (Person1.Tax)) + (Person2.Salary * (Person2.Tax));
+                    var combinedSalary = GetCombinedSalary();
                     Person1.ContributionWeight = combinedSalary == 0 ? (decimal)1 : (Person1.Salary * Person1.Tax) / combinedSalary;
                     Person2.ContributionWeight = combinedSalary == 0 ? (decimal)1 : (Person2.Salary * Person2.Tax) / combinedSalary;
+
                     var totalExpenses = GetTotalExpenses();
-                    Console.WriteLine("Total Expenses: " + totalExpenses);
                     Person1.Contribution = Person1.ContributionWeight * totalExpenses;
                     Person2.Contribution = Person2.ContributionWeight * totalExpenses;
-                    Console.WriteLine(Person1.Name + ": " + Person1.Contribution);
-                    Console.WriteLine(Person2.Name + ": " + Person2.Contribution);
                     break;
 
                 case BudgetStyle.EqualSpend:
                     Person1.ContributionWeight = (Decimal)0.5;
                     Person2.ContributionWeight = (Decimal)0.5;
+
+                    Person1.Contribution = Person1.ContributionWeight * GetTotalExpenses();
+                    Person2.Contribution = Person2.ContributionWeight * GetTotalExpenses();
                     break;
-                case BudgetStyle.EqualContribution: break;
+
+                case BudgetStyle.EqualContribution:
+                    Person1.Contribution = GetTotalExpenses() * (decimal)0.5;
+                    Person2.Contribution = GetTotalExpenses() * (decimal)0.5;
+
+                    // Update cotibution weight to keep state valid
+                    Person1.ContributionWeight = Person1.Contribution / GetTotalExpenses();
+                    Person2.ContributionWeight = Person2.Contribution / GetTotalExpenses();
+                    break;
             }
            
             Console.WriteLine(Person1.ContributionWeight);
             Console.WriteLine(Person2.ContributionWeight);
+            OnStateUpdate?.Invoke(this,EventArgs.Empty);
         }
+
+ 
         public State()
         {
             housingExpenses = new ExpenseList();
@@ -85,6 +99,13 @@ namespace CupidLogic
         {
             return housingExpenses.Total() + utilityExpenses.Total() + otherExpenses.Total() + foodExpenses.Total();
         }
+
+        private Decimal GetCombinedSalary()
+        {
+            return (Person1.Salary * (Person1.Tax)) + (Person2.Salary * (Person2.Tax));
+        }
+
+
     }
 
 }

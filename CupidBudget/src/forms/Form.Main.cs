@@ -14,10 +14,17 @@ namespace CupidBudget
     public partial class FormMain : Form
     {
         State state;
+
+
+        private void OnStateUpdate(object sender, EventArgs e)
+        {
+            Console.WriteLine("Event Fired!");
+        }
         public FormMain()
         {
             InitializeComponent();
             state = new State(); //Initialize the state
+            state.OnStateUpdate += this.OnStateUpdate;
             UpdateHousingCostLabel();
             lbl_utilities_total.Text = "$" + state.utilityExpenses.Total().ToString();
             lbl_food_total.Text = "$" + state.foodExpenses.Total().ToString();
@@ -40,18 +47,7 @@ namespace CupidBudget
             this.state.Person2.Tax = 1-(num_person2_tax_rate.Value * (decimal)0.01);
             Console.WriteLine(this.state.Person2);
             gb_person2_stats.Text = this.state.Person2.Name;
-            
-            /*
-            Console.WriteLine("Hello 2");
-            this.btn_person2.Text = "Sara";
-            using (UserDialog userDialog = new UserDialog())
-            {
-                if (userDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    this.Text = userDialog.UserName;
-                }
-            }
-            */
+
         }
 
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)

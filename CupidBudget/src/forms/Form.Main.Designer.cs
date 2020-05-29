@@ -29,9 +29,6 @@ namespace CupidBudget
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rb_equal_contribution = new System.Windows.Forms.RadioButton();
@@ -79,7 +76,6 @@ namespace CupidBudget
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.ch_person1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -91,7 +87,6 @@ namespace CupidBudget
             ((System.ComponentModel.ISupportInitialize)(this.num_person2_salary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_person1_salary)).BeginInit();
             this.gb_person1_stats.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ch_person1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -125,8 +120,8 @@ namespace CupidBudget
             this.splitContainer1.Panel2.Controls.Add(this.gb_person2_stats);
             this.splitContainer1.Panel2.Controls.Add(this.gb_person1_stats);
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
-            this.splitContainer1.Size = new System.Drawing.Size(1004, 459);
-            this.splitContainer1.SplitterDistance = 494;
+            this.splitContainer1.Size = new System.Drawing.Size(726, 459);
+            this.splitContainer1.SplitterDistance = 505;
             this.splitContainer1.TabIndex = 0;
             // 
             // groupBox2
@@ -508,7 +503,7 @@ namespace CupidBudget
             // 
             this.gb_person2_stats.Location = new System.Drawing.Point(4, 221);
             this.gb_person2_stats.Name = "gb_person2_stats";
-            this.gb_person2_stats.Size = new System.Drawing.Size(490, 224);
+            this.gb_person2_stats.Size = new System.Drawing.Size(203, 224);
             this.gb_person2_stats.TabIndex = 1;
             this.gb_person2_stats.TabStop = false;
             this.gb_person2_stats.Text = "person2";
@@ -523,10 +518,9 @@ namespace CupidBudget
             this.gb_person1_stats.Controls.Add(this.label13);
             this.gb_person1_stats.Controls.Add(this.label12);
             this.gb_person1_stats.Controls.Add(this.label11);
-            this.gb_person1_stats.Controls.Add(this.ch_person1);
             this.gb_person1_stats.Location = new System.Drawing.Point(4, 4);
             this.gb_person1_stats.Name = "gb_person1_stats";
-            this.gb_person1_stats.Size = new System.Drawing.Size(490, 211);
+            this.gb_person1_stats.Size = new System.Drawing.Size(203, 211);
             this.gb_person1_stats.TabIndex = 0;
             this.gb_person1_stats.TabStop = false;
             this.gb_person1_stats.Text = "person1";
@@ -604,31 +598,11 @@ namespace CupidBudget
             this.label11.TabIndex = 1;
             this.label11.Text = "Salary";
             // 
-            // ch_person1
-            // 
-            this.ch_person1.BackColor = System.Drawing.Color.Transparent;
-            this.ch_person1.BorderlineColor = System.Drawing.Color.Transparent;
-            chartArea1.Name = "ChartArea1";
-            this.ch_person1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.ch_person1.Legends.Add(legend1);
-            this.ch_person1.Location = new System.Drawing.Point(252, 23);
-            this.ch_person1.Name = "ch_person1";
-            this.ch_person1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.ch_person1.Series.Add(series1);
-            this.ch_person1.Size = new System.Drawing.Size(232, 152);
-            this.ch_person1.TabIndex = 0;
-            this.ch_person1.Text = "chart1";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 459);
+            this.ClientSize = new System.Drawing.Size(726, 459);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FormMain";
             this.Text = "Cupid\'s Budget";
@@ -647,7 +621,6 @@ namespace CupidBudget
             ((System.ComponentModel.ISupportInitialize)(this.num_person1_salary)).EndInit();
             this.gb_person1_stats.ResumeLayout(false);
             this.gb_person1_stats.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ch_person1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -693,7 +666,6 @@ namespace CupidBudget
         private System.Windows.Forms.RadioButton rb_equal_leftover;
         private System.Windows.Forms.RadioButton rb_weighted;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.DataVisualization.Charting.Chart ch_person1;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
