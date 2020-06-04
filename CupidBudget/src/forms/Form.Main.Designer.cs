@@ -40,9 +40,9 @@ namespace CupidBudget
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_misc_edit = new System.Windows.Forms.Button();
+            this.btn_food_edit = new System.Windows.Forms.Button();
+            this.btn_util_edit = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lbl_misc_total = new System.Windows.Forms.Label();
             this.lbl_food_total = new System.Windows.Forms.Label();
@@ -67,9 +67,17 @@ namespace CupidBudget
             this.label1 = new System.Windows.Forms.Label();
             this.btn_person2 = new System.Windows.Forms.Button();
             this.gb_person2_stats = new System.Windows.Forms.GroupBox();
+            this.lbl_person2_leftover = new System.Windows.Forms.Label();
+            this.lbl_person2_contribution_weight = new System.Windows.Forms.Label();
+            this.lbl_person2_contribution = new System.Windows.Forms.Label();
+            this.lbl_person2_salary = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.gb_person1_stats = new System.Windows.Forms.GroupBox();
+            this.lbl_person1_leftover = new System.Windows.Forms.Label();
             this.lbl_person1_contribution_weight = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.lbl_person1_contribution = new System.Windows.Forms.Label();
             this.lbl_person1_salary = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -86,6 +94,7 @@ namespace CupidBudget
             ((System.ComponentModel.ISupportInitialize)(this.num_person1_tax_rate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_person2_salary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_person1_salary)).BeginInit();
+            this.gb_person2_stats.SuspendLayout();
             this.gb_person1_stats.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,7 +122,6 @@ namespace CupidBudget
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.btn_person2);
-      
             // 
             // splitContainer1.Panel2
             // 
@@ -190,9 +198,9 @@ namespace CupidBudget
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.button8);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btn_misc_edit);
+            this.groupBox1.Controls.Add(this.btn_food_edit);
+            this.groupBox1.Controls.Add(this.btn_util_edit);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.lbl_misc_total);
             this.groupBox1.Controls.Add(this.lbl_food_total);
@@ -249,35 +257,35 @@ namespace CupidBudget
             this.button8.Text = "Details";
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btn_misc_edit
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(241, 136);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(91, 31);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "Edit";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_misc_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_misc_edit.Location = new System.Drawing.Point(241, 136);
+            this.btn_misc_edit.Name = "btn_misc_edit";
+            this.btn_misc_edit.Size = new System.Drawing.Size(91, 31);
+            this.btn_misc_edit.TabIndex = 11;
+            this.btn_misc_edit.Text = "Edit";
+            this.btn_misc_edit.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btn_food_edit
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(241, 101);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(91, 31);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Edit";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_food_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_food_edit.Location = new System.Drawing.Point(241, 101);
+            this.btn_food_edit.Name = "btn_food_edit";
+            this.btn_food_edit.Size = new System.Drawing.Size(91, 31);
+            this.btn_food_edit.TabIndex = 10;
+            this.btn_food_edit.Text = "Edit";
+            this.btn_food_edit.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btn_util_edit
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(241, 64);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 31);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Edit";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_util_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_util_edit.Location = new System.Drawing.Point(241, 64);
+            this.btn_util_edit.Name = "btn_util_edit";
+            this.btn_util_edit.Size = new System.Drawing.Size(91, 31);
+            this.btn_util_edit.TabIndex = 9;
+            this.btn_util_edit.Text = "Edit";
+            this.btn_util_edit.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -485,7 +493,6 @@ namespace CupidBudget
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Name";
-
             // 
             // btn_person2
             // 
@@ -499,6 +506,14 @@ namespace CupidBudget
             // 
             // gb_person2_stats
             // 
+            this.gb_person2_stats.Controls.Add(this.lbl_person2_leftover);
+            this.gb_person2_stats.Controls.Add(this.lbl_person2_contribution_weight);
+            this.gb_person2_stats.Controls.Add(this.lbl_person2_contribution);
+            this.gb_person2_stats.Controls.Add(this.lbl_person2_salary);
+            this.gb_person2_stats.Controls.Add(this.label21);
+            this.gb_person2_stats.Controls.Add(this.label22);
+            this.gb_person2_stats.Controls.Add(this.label23);
+            this.gb_person2_stats.Controls.Add(this.label24);
             this.gb_person2_stats.Location = new System.Drawing.Point(4, 221);
             this.gb_person2_stats.Name = "gb_person2_stats";
             this.gb_person2_stats.Size = new System.Drawing.Size(203, 224);
@@ -506,10 +521,82 @@ namespace CupidBudget
             this.gb_person2_stats.TabStop = false;
             this.gb_person2_stats.Text = "person2";
             // 
+            // lbl_person2_leftover
+            // 
+            this.lbl_person2_leftover.AutoSize = true;
+            this.lbl_person2_leftover.Location = new System.Drawing.Point(121, 168);
+            this.lbl_person2_leftover.Name = "lbl_person2_leftover";
+            this.lbl_person2_leftover.Size = new System.Drawing.Size(34, 13);
+            this.lbl_person2_leftover.TabIndex = 16;
+            this.lbl_person2_leftover.Text = "$0.00";
+            // 
+            // lbl_person2_contribution_weight
+            // 
+            this.lbl_person2_contribution_weight.AutoSize = true;
+            this.lbl_person2_contribution_weight.Location = new System.Drawing.Point(121, 128);
+            this.lbl_person2_contribution_weight.Name = "lbl_person2_contribution_weight";
+            this.lbl_person2_contribution_weight.Size = new System.Drawing.Size(21, 13);
+            this.lbl_person2_contribution_weight.TabIndex = 15;
+            this.lbl_person2_contribution_weight.Text = "0%";
+            // 
+            // lbl_person2_contribution
+            // 
+            this.lbl_person2_contribution.AutoSize = true;
+            this.lbl_person2_contribution.Location = new System.Drawing.Point(121, 87);
+            this.lbl_person2_contribution.Name = "lbl_person2_contribution";
+            this.lbl_person2_contribution.Size = new System.Drawing.Size(34, 13);
+            this.lbl_person2_contribution.TabIndex = 14;
+            this.lbl_person2_contribution.Text = "$0.00";
+            // 
+            // lbl_person2_salary
+            // 
+            this.lbl_person2_salary.AutoSize = true;
+            this.lbl_person2_salary.Location = new System.Drawing.Point(121, 48);
+            this.lbl_person2_salary.Name = "lbl_person2_salary";
+            this.lbl_person2_salary.Size = new System.Drawing.Size(34, 13);
+            this.lbl_person2_salary.TabIndex = 13;
+            this.lbl_person2_salary.Text = "$0.00";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(7, 168);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(94, 13);
+            this.label21.TabIndex = 12;
+            this.label21.Text = "After Contribution: ";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 128);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(106, 13);
+            this.label22.TabIndex = 11;
+            this.label22.Text = "Contribution Weight: ";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(6, 87);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(69, 13);
+            this.label23.TabIndex = 10;
+            this.label23.Text = "Contribution: ";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(7, 47);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(36, 13);
+            this.label24.TabIndex = 9;
+            this.label24.Text = "Salary";
+            // 
             // gb_person1_stats
             // 
+            this.gb_person1_stats.Controls.Add(this.lbl_person1_leftover);
             this.gb_person1_stats.Controls.Add(this.lbl_person1_contribution_weight);
-            this.gb_person1_stats.Controls.Add(this.label18);
             this.gb_person1_stats.Controls.Add(this.lbl_person1_contribution);
             this.gb_person1_stats.Controls.Add(this.lbl_person1_salary);
             this.gb_person1_stats.Controls.Add(this.label14);
@@ -523,23 +610,23 @@ namespace CupidBudget
             this.gb_person1_stats.TabStop = false;
             this.gb_person1_stats.Text = "person1";
             // 
+            // lbl_person1_leftover
+            // 
+            this.lbl_person1_leftover.AutoSize = true;
+            this.lbl_person1_leftover.Location = new System.Drawing.Point(121, 150);
+            this.lbl_person1_leftover.Name = "lbl_person1_leftover";
+            this.lbl_person1_leftover.Size = new System.Drawing.Size(34, 13);
+            this.lbl_person1_leftover.TabIndex = 8;
+            this.lbl_person1_leftover.Text = "$0.00";
+            // 
             // lbl_person1_contribution_weight
             // 
             this.lbl_person1_contribution_weight.AutoSize = true;
-            this.lbl_person1_contribution_weight.Location = new System.Drawing.Point(121, 150);
+            this.lbl_person1_contribution_weight.Location = new System.Drawing.Point(121, 110);
             this.lbl_person1_contribution_weight.Name = "lbl_person1_contribution_weight";
-            this.lbl_person1_contribution_weight.Size = new System.Drawing.Size(34, 13);
-            this.lbl_person1_contribution_weight.TabIndex = 8;
-            this.lbl_person1_contribution_weight.Text = "$0.00";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(121, 110);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(21, 13);
-            this.label18.TabIndex = 7;
-            this.label18.Text = "0%";
+            this.lbl_person1_contribution_weight.Size = new System.Drawing.Size(21, 13);
+            this.lbl_person1_contribution_weight.TabIndex = 7;
+            this.lbl_person1_contribution_weight.Text = "0%";
             // 
             // lbl_person1_contribution
             // 
@@ -558,7 +645,6 @@ namespace CupidBudget
             this.lbl_person1_salary.Size = new System.Drawing.Size(34, 13);
             this.lbl_person1_salary.TabIndex = 5;
             this.lbl_person1_salary.Text = "$0.00";
-
             // 
             // label14
             // 
@@ -617,6 +703,8 @@ namespace CupidBudget
             ((System.ComponentModel.ISupportInitialize)(this.num_person1_tax_rate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_person2_salary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_person1_salary)).EndInit();
+            this.gb_person2_stats.ResumeLayout(false);
+            this.gb_person2_stats.PerformLayout();
             this.gb_person1_stats.ResumeLayout(false);
             this.gb_person1_stats.PerformLayout();
             this.ResumeLayout(false);
@@ -648,9 +736,9 @@ namespace CupidBudget
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_misc_edit;
+        private System.Windows.Forms.Button btn_food_edit;
+        private System.Windows.Forms.Button btn_util_edit;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lbl_misc_total;
         private System.Windows.Forms.Label lbl_food_total;
@@ -664,14 +752,22 @@ namespace CupidBudget
         private System.Windows.Forms.RadioButton rb_equal_leftover;
         private System.Windows.Forms.RadioButton rb_weighted;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lbl_person1_leftover;
         private System.Windows.Forms.Label lbl_person1_contribution_weight;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label lbl_person1_contribution;
         private System.Windows.Forms.Label lbl_person1_salary;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbl_person2_leftover;
+        private System.Windows.Forms.Label lbl_person2_contribution_weight;
+        private System.Windows.Forms.Label lbl_person2_contribution;
+        private System.Windows.Forms.Label lbl_person2_salary;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
     }
 }
 

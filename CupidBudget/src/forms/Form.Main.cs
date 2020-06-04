@@ -19,10 +19,19 @@ namespace CupidBudget
 
         private void OnStateUpdate(object sender, EventArgs e)
         {
+            // Update display for first person's data
             this.lbl_person1_salary.Text = this.state.Person1.Salary.ToString("C", CultureInfo.CurrentCulture);
             this.lbl_person1_contribution.Text = this.state.Person1.Contribution.ToString("C", CultureInfo.CurrentCulture);
-            this.lbl_person1_contribution_weight.Text = this.state.Person1.ContributionWeight.ToString();
+            this.lbl_person1_contribution_weight.Text = this.state.Person1.ContributionWeight.ToString("P");
+            this.lbl_person1_leftover.Text = ( ((this.state.Person1.Salary*this.state.Person1.Tax) / 12) - this.state.Person1.Contribution).ToString("C", CultureInfo.CurrentCulture);
+
+            // Update display for second person's data
+            this.lbl_person2_salary.Text = this.state.Person2.Salary.ToString("C", CultureInfo.CurrentCulture);
+            this.lbl_person2_contribution.Text = this.state.Person2.Contribution.ToString("C", CultureInfo.CurrentCulture);
+            this.lbl_person2_contribution_weight.Text = this.state.Person2.ContributionWeight.ToString("P");
+            this.lbl_person2_leftover.Text = (((this.state.Person2.Salary * this.state.Person2.Tax) / 12) - this.state.Person2.Contribution).ToString("C", CultureInfo.CurrentCulture);
         }
+
         public FormMain()
         {
             InitializeComponent();
@@ -137,5 +146,7 @@ namespace CupidBudget
                 updateResults();
             }
         }
+
+   
     }
 }
