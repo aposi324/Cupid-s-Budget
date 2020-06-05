@@ -36,10 +36,6 @@ namespace CupidBudget
             this.rb_weighted = new System.Windows.Forms.RadioButton();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.btn_misc_edit = new System.Windows.Forms.Button();
             this.btn_food_edit = new System.Windows.Forms.Button();
             this.btn_util_edit = new System.Windows.Forms.Button();
@@ -194,10 +190,6 @@ namespace CupidBudget
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.button6);
-            this.groupBox1.Controls.Add(this.button7);
-            this.groupBox1.Controls.Add(this.button8);
             this.groupBox1.Controls.Add(this.btn_misc_edit);
             this.groupBox1.Controls.Add(this.btn_food_edit);
             this.groupBox1.Controls.Add(this.btn_util_edit);
@@ -217,80 +209,43 @@ namespace CupidBudget
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Expenses";
             // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(367, 136);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(91, 31);
-            this.button5.TabIndex = 15;
-            this.button5.Text = "Details";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(367, 101);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(91, 31);
-            this.button6.TabIndex = 14;
-            this.button6.Text = "Details";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(367, 64);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(91, 31);
-            this.button7.TabIndex = 13;
-            this.button7.Text = "Details";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(367, 30);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(91, 31);
-            this.button8.TabIndex = 12;
-            this.button8.Text = "Details";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
             // btn_misc_edit
             // 
             this.btn_misc_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_misc_edit.Location = new System.Drawing.Point(241, 136);
+            this.btn_misc_edit.Location = new System.Drawing.Point(313, 136);
             this.btn_misc_edit.Name = "btn_misc_edit";
             this.btn_misc_edit.Size = new System.Drawing.Size(91, 31);
             this.btn_misc_edit.TabIndex = 11;
             this.btn_misc_edit.Text = "Edit";
             this.btn_misc_edit.UseVisualStyleBackColor = true;
+            this.btn_misc_edit.Click += new System.EventHandler(this.btn_misc_edit_Click);
             // 
             // btn_food_edit
             // 
             this.btn_food_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_food_edit.Location = new System.Drawing.Point(241, 101);
+            this.btn_food_edit.Location = new System.Drawing.Point(313, 101);
             this.btn_food_edit.Name = "btn_food_edit";
             this.btn_food_edit.Size = new System.Drawing.Size(91, 31);
             this.btn_food_edit.TabIndex = 10;
             this.btn_food_edit.Text = "Edit";
             this.btn_food_edit.UseVisualStyleBackColor = true;
+            this.btn_food_edit.Click += new System.EventHandler(this.btn_food_edit_Click);
             // 
             // btn_util_edit
             // 
             this.btn_util_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_util_edit.Location = new System.Drawing.Point(241, 64);
+            this.btn_util_edit.Location = new System.Drawing.Point(313, 64);
             this.btn_util_edit.Name = "btn_util_edit";
             this.btn_util_edit.Size = new System.Drawing.Size(91, 31);
             this.btn_util_edit.TabIndex = 9;
             this.btn_util_edit.Text = "Edit";
             this.btn_util_edit.UseVisualStyleBackColor = true;
+            this.btn_util_edit.Click += new System.EventHandler(this.btn_util_edit_Click);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(241, 30);
+            this.button1.Location = new System.Drawing.Point(313, 30);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(91, 31);
             this.button1.TabIndex = 8;
@@ -302,7 +257,7 @@ namespace CupidBudget
             // 
             this.lbl_misc_total.AutoSize = true;
             this.lbl_misc_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_misc_total.Location = new System.Drawing.Point(138, 147);
+            this.lbl_misc_total.Location = new System.Drawing.Point(177, 147);
             this.lbl_misc_total.Name = "lbl_misc_total";
             this.lbl_misc_total.Size = new System.Drawing.Size(58, 20);
             this.lbl_misc_total.TabIndex = 7;
@@ -312,7 +267,7 @@ namespace CupidBudget
             // 
             this.lbl_food_total.AutoSize = true;
             this.lbl_food_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_food_total.Location = new System.Drawing.Point(138, 107);
+            this.lbl_food_total.Location = new System.Drawing.Point(177, 107);
             this.lbl_food_total.Name = "lbl_food_total";
             this.lbl_food_total.Size = new System.Drawing.Size(58, 20);
             this.lbl_food_total.TabIndex = 6;
@@ -322,7 +277,7 @@ namespace CupidBudget
             // 
             this.lbl_utilities_total.AutoSize = true;
             this.lbl_utilities_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_utilities_total.Location = new System.Drawing.Point(138, 69);
+            this.lbl_utilities_total.Location = new System.Drawing.Point(177, 69);
             this.lbl_utilities_total.Name = "lbl_utilities_total";
             this.lbl_utilities_total.Size = new System.Drawing.Size(58, 20);
             this.lbl_utilities_total.TabIndex = 5;
@@ -332,7 +287,7 @@ namespace CupidBudget
             // 
             this.lbl_housing_total.AutoSize = true;
             this.lbl_housing_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_housing_total.Location = new System.Drawing.Point(138, 30);
+            this.lbl_housing_total.Location = new System.Drawing.Point(177, 30);
             this.lbl_housing_total.Name = "lbl_housing_total";
             this.lbl_housing_total.Size = new System.Drawing.Size(58, 20);
             this.lbl_housing_total.TabIndex = 4;
@@ -732,10 +687,6 @@ namespace CupidBudget
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox gb_person2_stats;
         private System.Windows.Forms.GroupBox gb_person1_stats;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button btn_misc_edit;
         private System.Windows.Forms.Button btn_food_edit;
         private System.Windows.Forms.Button btn_util_edit;

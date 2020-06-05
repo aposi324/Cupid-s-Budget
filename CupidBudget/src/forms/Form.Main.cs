@@ -37,12 +37,12 @@ namespace CupidBudget
             InitializeComponent();
             state = new State(); //Initialize the state
             state.OnStateUpdate += this.OnStateUpdate;
-            UpdateHousingCostLabel();
+            //UpdateHousingCostLabel();
+            lbl_housing_total.Text = state.housingExpenses.Total().ToString("C", CultureInfo.CurrentCulture);
             lbl_utilities_total.Text = state.utilityExpenses.Total().ToString("C", CultureInfo.CurrentCulture);
             lbl_food_total.Text = state.foodExpenses.Total().ToString("C", CultureInfo.CurrentCulture);
             lbl_misc_total.Text = state.otherExpenses.Total().ToString("C", CultureInfo.CurrentCulture);
         }
-
 
 
         private void btn_person2_Click(object sender, EventArgs e)
@@ -77,26 +77,82 @@ namespace CupidBudget
         }
 
 
-        //Housing expense Edit button click event handler
+        // The following should be refactored into a generic method for arbitrary expense list editing
+        /// <summary>
+        /// Housing expense edit button click event handler. Brings up dialog box to edit housing expenses.
+        /// </summary>
+        /// <param name="sender"> Object sending the event. </param>
+        /// <param name="e"> EventArgs </param>
         private void btn_housing_expenses_Click(object sender, EventArgs e)
         {
-          
             using (MonthlyExpenseDialog dialog = new MonthlyExpenseDialog(state.housingExpenses))
             {
                 //Open dialog box to edit the expenses
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    Console.WriteLine("Heyo");
                     state.housingExpenses = dialog.expenseState;
-                    UpdateHousingCostLabel();
+                    UpdateCostLabel(lbl_housing_total, state.housingExpenses);
                 }
             }
         }
 
-
-        private void UpdateHousingCostLabel()
+        /// <summary>
+        /// Utility expense edit button click event handler. Brings up dialog box to edit utility expenses.
+        /// </summary>
+        /// <param name="sender"> Object sending the event. </param>
+        /// <param name="e"> EventArgs </param>
+        private void btn_util_edit_Click(object sender, EventArgs e)
         {
-            lbl_housing_total.Text = "$" + state.housingExpenses.Total().ToString();
+            using (MonthlyExpenseDialog dialog = new MonthlyExpenseDialog(state.utilityExpenses))
+            {
+                //Open dialog box to edit the expenses
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    state.utilityExpenses = dialog.expenseState;
+                    UpdateCostLabel(lbl_utilities_total, state.utilityExpenses);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Food expense edit button click event handler. Brings up dialog box to edit food expenses.
+        /// </summary>
+        /// <param name="sender"> Object sending the event. </param>
+        /// <param name="e"> EventArgs </param>
+        private void btn_food_edit_Click(object sender, EventArgs e)
+        {
+            using (MonthlyExpenseDialog dialog = new MonthlyExpenseDialog(state.foodExpenses))
+            {
+                //Open dialog box to edit the expenses
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    state.foodExpenses = dialog.expenseState;
+                    UpdateCostLabel(lbl_food_total, state.foodExpenses);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Misc. expense edit button click event handler. Brings up dialog box to edit misc expenses.
+        /// </summary>
+        /// <param name="sender"> Object sending the event. </param>
+        /// <param name="e"> EventArgs </param>
+        private void btn_misc_edit_Click(object sender, EventArgs e)
+        {
+            using (MonthlyExpenseDialog dialog = new MonthlyExpenseDialog(state.otherExpenses))
+            {
+                //Open dialog box to edit the expenses
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    state.otherExpenses = dialog.expenseState;
+                    UpdateCostLabel(lbl_misc_total, state.otherExpenses);
+                }
+            }
+        }
+
+        private void UpdateCostLabel(Label lbl, ExpenseList list)
+        {
+            lbl.Text = list.Total().ToString("C", CultureInfo.CurrentCulture);
         }
 
         private void updateResults()
@@ -147,6 +203,6 @@ namespace CupidBudget
             }
         }
 
-   
+  
     }
 }
