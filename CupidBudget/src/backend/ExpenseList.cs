@@ -38,7 +38,7 @@ namespace CupidLogic
             l = new List<Expense>();
         }
 
-        // Return the some of all monthly expenses
+        // Return the sum of all monthly expenses
         public decimal Total()
         {
             decimal total = 0;
