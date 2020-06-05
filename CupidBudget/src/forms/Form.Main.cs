@@ -52,7 +52,18 @@ namespace CupidBudget
             this.state.Person2.Tax = 1-(num_person2_tax_rate.Value * (decimal)0.01);
             Console.WriteLine(this.state.Person2);
             gb_person2_stats.Text = this.state.Person2.Name;
+            updateResults();
+        }
 
+        private void btn_person1_Click_1(object sender, EventArgs e)
+        {
+            this.state.Person1.Name = tb_person1_name.Text;
+            this.state.Person1.Salary = num_person1_salary.Value;
+            this.state.Person1.Tax = 1 - (num_person1_tax_rate.Value * (decimal)0.01);
+            Console.WriteLine(this.state.Person1);
+            gb_person1_stats.Text = this.state.Person1.Name;
+            this.lbl_person1_salary.Text = this.state.Person1.Salary.ToString("C", CultureInfo.CurrentCulture);
+            updateResults();
         }
 
         private void splitContainer1_Panel2_MouseClick(object sender, MouseEventArgs e)
@@ -66,15 +77,7 @@ namespace CupidBudget
             }
         }
 
-        private void btn_person1_Click_1(object sender, EventArgs e)
-        {
-            this.state.Person1.Name = tb_person1_name.Text;
-            this.state.Person1.Salary = num_person1_salary.Value;
-            this.state.Person1.Tax = 1-(num_person1_tax_rate.Value * (decimal)0.01);
-            Console.WriteLine(this.state.Person1);
-            gb_person1_stats.Text = this.state.Person1.Name;
-            this.lbl_person1_salary.Text = this.state.Person1.Salary.ToString("C", CultureInfo.CurrentCulture);
-        }
+
 
 
         // The following should be refactored into a generic method for arbitrary expense list editing
@@ -92,6 +95,7 @@ namespace CupidBudget
                 {
                     state.housingExpenses = dialog.expenseState;
                     UpdateCostLabel(lbl_housing_total, state.housingExpenses);
+                    updateResults();
                 }
             }
         }
@@ -110,6 +114,7 @@ namespace CupidBudget
                 {
                     state.utilityExpenses = dialog.expenseState;
                     UpdateCostLabel(lbl_utilities_total, state.utilityExpenses);
+                    updateResults();
                 }
             }
         }
@@ -128,6 +133,7 @@ namespace CupidBudget
                 {
                     state.foodExpenses = dialog.expenseState;
                     UpdateCostLabel(lbl_food_total, state.foodExpenses);
+                    updateResults();
                 }
             }
         }
@@ -146,6 +152,7 @@ namespace CupidBudget
                 {
                     state.otherExpenses = dialog.expenseState;
                     UpdateCostLabel(lbl_misc_total, state.otherExpenses);
+                    updateResults();
                 }
             }
         }
