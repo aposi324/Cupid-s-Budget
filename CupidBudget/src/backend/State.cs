@@ -56,11 +56,13 @@ namespace CupidLogic
                     break;
 
                 case BudgetStyle.EqualSpend:
-                    Person1.ContributionWeight = (Decimal)0.5;
-                    Person2.ContributionWeight = (Decimal)0.5;
+                    var eachLeft = ((GetCombinedSalary()/12) - GetTotalExpenses()) / 2;
+                    Console.WriteLine(eachLeft);
+                    Person1.Contribution = ((Person1.Salary * Person1.Tax)/12) - eachLeft;
+                    Person2.Contribution = ((Person2.Salary * Person2.Tax)/12) - eachLeft;
 
-                    Person1.Contribution = Person1.ContributionWeight * GetTotalExpenses();
-                    Person2.Contribution = Person2.ContributionWeight * GetTotalExpenses();
+                    Person1.ContributionWeight = Person1.Contribution / GetTotalExpenses();
+                    Person2.ContributionWeight = Person2.Contribution / GetTotalExpenses();
                     break;
 
                 case BudgetStyle.EqualContribution:

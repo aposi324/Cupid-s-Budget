@@ -15,33 +15,37 @@ namespace CupidBudget
     public partial class FormMain : Form
     {
         State state;
-
-
+        CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
+      
         private void OnStateUpdate(object sender, EventArgs e)
         {
             // Update display for first person's data
-            this.lbl_person1_salary.Text = this.state.Person1.Salary.ToString("C", CultureInfo.CurrentCulture);
-            this.lbl_person1_contribution.Text = this.state.Person1.Contribution.ToString("C", CultureInfo.CurrentCulture);
+            this.lbl_person1_salary.Text = this.state.Person1.Salary.ToString("C", culture);
+            this.lbl_person1_contribution.Text = this.state.Person1.Contribution.ToString("C", culture);
             this.lbl_person1_contribution_weight.Text = this.state.Person1.ContributionWeight.ToString("P");
-            this.lbl_person1_leftover.Text = ( ((this.state.Person1.Salary*this.state.Person1.Tax) / 12) - this.state.Person1.Contribution).ToString("C", CultureInfo.CurrentCulture);
+            this.lbl_person1_leftover.Text = ( ((this.state.Person1.Salary*this.state.Person1.Tax) / 12) - this.state.Person1.Contribution).ToString("C", culture);
 
             // Update display for second person's data
-            this.lbl_person2_salary.Text = this.state.Person2.Salary.ToString("C", CultureInfo.CurrentCulture);
-            this.lbl_person2_contribution.Text = this.state.Person2.Contribution.ToString("C", CultureInfo.CurrentCulture);
+            this.lbl_person2_salary.Text = this.state.Person2.Salary.ToString("C", culture);
+            this.lbl_person2_contribution.Text = this.state.Person2.Contribution.ToString("C", culture);
             this.lbl_person2_contribution_weight.Text = this.state.Person2.ContributionWeight.ToString("P");
-            this.lbl_person2_leftover.Text = (((this.state.Person2.Salary * this.state.Person2.Tax) / 12) - this.state.Person2.Contribution).ToString("C", CultureInfo.CurrentCulture);
+            this.lbl_person2_leftover.Text = (((this.state.Person2.Salary * this.state.Person2.Tax) / 12) - this.state.Person2.Contribution).ToString("C", culture);
         }
 
         public FormMain()
         {
             InitializeComponent();
+            culture.NumberFormat.CurrencyNegativePattern = 1;
+
             state = new State(); //Initialize the state
             state.OnStateUpdate += this.OnStateUpdate;
             //UpdateHousingCostLabel();
-            lbl_housing_total.Text = state.housingExpenses.Total().ToString("C", CultureInfo.CurrentCulture);
-            lbl_utilities_total.Text = state.utilityExpenses.Total().ToString("C", CultureInfo.CurrentCulture);
-            lbl_food_total.Text = state.foodExpenses.Total().ToString("C", CultureInfo.CurrentCulture);
-            lbl_misc_total.Text = state.otherExpenses.Total().ToString("C", CultureInfo.CurrentCulture);
+            lbl_housing_total.Text = state.housingExpenses.Total().ToString("C", culture);
+            lbl_utilities_total.Text = state.utilityExpenses.Total().ToString("C", culture);
+            lbl_food_total.Text = state.foodExpenses.Total().ToString("C", culture);
+            lbl_misc_total.Text = state.otherExpenses.Total().ToString("C", culture);
+
+         
         }
 
 
@@ -62,7 +66,7 @@ namespace CupidBudget
             this.state.Person1.Tax = 1 - (num_person1_tax_rate.Value * (decimal)0.01);
             Console.WriteLine(this.state.Person1);
             gb_person1_stats.Text = this.state.Person1.Name;
-            this.lbl_person1_salary.Text = this.state.Person1.Salary.ToString("C", CultureInfo.CurrentCulture);
+            this.lbl_person1_salary.Text = this.state.Person1.Salary.ToString("C", culture);
             updateResults();
         }
 
@@ -159,7 +163,7 @@ namespace CupidBudget
 
         private void UpdateCostLabel(Label lbl, ExpenseList list)
         {
-            lbl.Text = list.Total().ToString("C", CultureInfo.CurrentCulture);
+            lbl.Text = list.Total().ToString("C", culture);
         }
 
         private void updateResults()
