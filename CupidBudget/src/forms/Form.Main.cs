@@ -24,12 +24,14 @@ namespace CupidBudget
             this.lbl_person1_contribution.Text = this.state.Person1.Contribution.ToString("C", culture);
             this.lbl_person1_contribution_weight.Text = this.state.Person1.ContributionWeight.ToString("P");
             this.lbl_person1_leftover.Text = ( ((this.state.Person1.Salary*this.state.Person1.Tax) / 12) - this.state.Person1.Contribution).ToString("C", culture);
-
+           
             // Update display for second person's data
             this.lbl_person2_salary.Text = this.state.Person2.Salary.ToString("C", culture);
             this.lbl_person2_contribution.Text = this.state.Person2.Contribution.ToString("C", culture);
             this.lbl_person2_contribution_weight.Text = this.state.Person2.ContributionWeight.ToString("P");
             this.lbl_person2_leftover.Text = (((this.state.Person2.Salary * this.state.Person2.Tax) / 12) - this.state.Person2.Contribution).ToString("C", culture);
+
+            DisplayColorWarning();
         }
 
         public FormMain()
@@ -47,7 +49,6 @@ namespace CupidBudget
 
          
         }
-
 
         private void btn_person2_Click(object sender, EventArgs e)
         {
@@ -80,9 +81,6 @@ namespace CupidBudget
                 }
             }
         }
-
-
-
 
         // The following should be refactored into a generic method for arbitrary expense list editing
         /// <summary>
@@ -166,25 +164,24 @@ namespace CupidBudget
             lbl.Text = list.Total().ToString("C", culture);
         }
 
+        /// <summary>
+        /// Update the results of the budget with all current information accounted for.
+        /// </summary>
         private void updateResults()
         {
             if (rb_weighted.Checked)
             {
-                Console.WriteLine("Weighted Contribution");
                 state.CurrentBudgetStyle = State.BudgetStyle.Weighted;
             } else if (rb_equal_leftover.Checked)
             {
-                Console.WriteLine("Equal Leftover");
                 state.CurrentBudgetStyle = State.BudgetStyle.EqualSpend;
             }
             else if (rb_equal_contribution.Checked)
             {
-                Console.WriteLine("Equal Contribution");
                 state.CurrentBudgetStyle = State.BudgetStyle.EqualContribution;
             }
             return;
         }
-
 
 
         private void rb_weighted_CheckedChanged(object sender, EventArgs e)
@@ -214,6 +211,55 @@ namespace CupidBudget
             }
         }
 
-  
+        /// <summary>
+        /// Changes the color of labels to red if certain information in a budget makes it unrealistic.
+        /// </summary>
+        private void DisplayColorWarning()
+        {
+            // Contribution weight error
+            if (this.state.Person1.ContributionWeight < 0)
+            {
+                lbl_person1_contribution_weight.ForeColor = Color.Red;
+            }
+            else
+            {
+                lbl_person1_contribution_weight.ForeColor = Color.Black;
+            }
+
+            if (this.state.Person2.ContributionWeight < 0)
+            {
+                lbl_person2_contribution_weight.ForeColor = Color.Red;
+            }
+            else
+            {
+                lbl_person2_contribution_weight.ForeColor = Color.Black;
+            }
+
+
+            // Display leftover as red if the person doesn't earn enough
+            if (this.state.Person1.LeftOver < 0)
+            {
+                lbl_person1_leftover.ForeColor = Color.Red;
+            }
+            else
+            {
+                lbl_person1_leftover.ForeColor = Color.Black;
+            }
+
+
+            if (this.state.Person2.LeftOver < 0)
+            {
+                lbl_person2_leftover.ForeColor = Color.Red;
+            }
+            else
+            {
+                lbl_person2_leftover.ForeColor = Color.Black;
+            }
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
