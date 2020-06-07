@@ -43,7 +43,6 @@ namespace CupidLogic
        
             switch (CurrentBudgetStyle)
             {
-                //TODO: Budget goes over
                 case BudgetStyle.Weighted:  // Each person contributes to the monthly bills proportionally to their post-tax salary
                    // var combinedSalary = (Person1.Salary * (Person1.Tax)) + (Person2.Salary * (Person2.Tax));
                     var combinedSalary = GetCombinedSalary();
