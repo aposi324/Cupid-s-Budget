@@ -12,7 +12,7 @@ Cupid's budget is created to track couples' expenses and form a budget. It is pl
   * Both individuals will contibute the same amount to monthly expenses, up to 100% of their income.
 
 # Current Status
-Not all core features are implemented currently. It is still being worked on!
+Most core features are implemented. Unit tests will be written and the software will be tested in more detail before an initial preview release.
 
 # Planned features
 After all core functionality is implemented, the following features are planned
